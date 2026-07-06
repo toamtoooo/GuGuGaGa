@@ -1,0 +1,175 @@
+:root{
+    text-align: center;
+    font-family: 'Noto Serif SC', 'SimSun', serif;
+}
+
+.navbar {
+    background-color: #FDF5E6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #ffcd29;
+    text-align: left;
+    padding: 15px 50px;
+}
+
+body {
+    background-color: #FDF5E6;
+    background-image: url(/...project/asset/background.png);
+    background-size: cover;        /* 铺满整个屏幕，保持比例 */
+    background-position: center top; /* 顶部居中，人物在上方 */
+    background-repeat: no-repeat;  /* 不重复 */
+    background-attachment: fixed;   /* 滚动时背景不动（视差效果） */
+    padding-top: 200px;
+
+}
+
+
+/* 入场动画 */
+.fade-in-down {
+    opacity: 0;
+    transform: translateY(-30px);
+    
+    /* 动画 */
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========== 咕咕嘎嘎教 · 标题盒子 ========== */
+
+.title-box {
+    /* 盒子尺寸 */
+    display: inline-block;        /* 根据内容自适应宽度 */
+    padding: 40px 80px;           /* 内边距：上下40，左右80 */
+    
+    /* 盒子背景 */
+    background: linear-gradient(
+        135deg,
+        rgba(253, 245, 230, 0.95) 0%,    /* 米白 */
+        rgba(255, 255, 255, 0.98) 50%,    /* 纯白 */
+        rgba(253, 245, 230, 0.95) 100%    /* 米白 */
+    );
+    
+    /* 盒子边框 */
+    border: 3px solid #D4AF37;           /* 金色实线 */
+    border-radius: 20px;                  /* 圆角 */
+    
+    /* 盒子阴影 */
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.1),         /* 外阴影 */
+        0 0 40px rgba(212, 175, 55, 0.2),        /* 金色光晕 */
+        inset 0 1px 0 rgba(255, 255, 255, 0.8); /* 内高光 */
+    
+    /* 相对定位，给扫光当参照 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 盒子装饰角标（四个角的小金三角） */
+.title-box::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid #D4AF37;
+    border-left: 3px solid #D4AF37;
+}
+
+.title-box::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-bottom: 3px solid #D4AF37;
+    border-right: 3px solid #D4AF37;
+}
+
+/* ===== 标题文字 ===== */
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 12px;
+    text-align: center;
+    
+    /* 烫金渐变 */
+    background: linear-gradient(
+        180deg,
+        #FFF8DC 0%,
+        #F4D03F 20%,
+        #D4AF37 45%,
+        #B8860B 55%,
+        #D4AF37 80%,
+        #F4D03F 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+    /* 文字阴影 */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    
+    /* 外发光 */
+    filter: drop-shadow(0 0 6px rgba(212,175,55,0.4));
+}
+
+/* ===== 副标题 ===== */
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #B8860B;
+    text-align: center;
+    letter-spacing: 6px;
+    margin-top: 15px;
+}
+
+/* ===== 经文 ===== */
+.hero-verse {
+    font-size: 1rem;
+    color: #6B4423;
+    text-align: center;
+    line-height: 2;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* ===== 盒子扫光动画 ===== */
+.title-box .shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    transform: skewX(-25deg);
+    animation: box-shine 5s ease-in-out infinite;
+}
+
+@keyframes box-shine {
+    0% { left: -100%; }
+    40% { left: 200%; }
+    100% { left: 200%; }
+}
