@@ -20,7 +20,7 @@
 
 body {
     background-color: #FDF5E6;
-    background-image: url("/...project/asset/background.png");
+    background-image: url("http://scpsandboxcn.wikidot.com/local--files/eyouwoqu/background.png");
     background-size: cover;        /* 铺满整个屏幕，保持比例 */
     background-position: center top; /* 顶部居中，人物在上方 */
     background-repeat: no-repeat;  /* 不重复 */
